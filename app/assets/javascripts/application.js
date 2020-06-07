@@ -12,5 +12,11 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require Chart.min
+//= require flatpickr
+//= require flatpickr/l10n/ja
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .

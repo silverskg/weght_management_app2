@@ -1,6 +1,6 @@
 document.addEventListener('turbolinks:load', () => {
-  let barLabel = ['1月', '2月', '3月', '4月', '5月', '6月']
-  let barData = [5, 4, 2, 6, 5, 8]
+  let barLabel = gon.chart_label
+  let barData = gon.chart_data
   
   const barChartData = {
         labels: barLabel,

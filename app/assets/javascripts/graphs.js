@@ -9,6 +9,8 @@ document.addEventListener('turbolinks:load', () => {
 
   const chartWeightContext = document.getElementById("chart-weight").getContext('2d')
 
+  let chartWeight
+
   const drawGraph = ( from, to) => {
 
     let records = gon.weight_records.filter((record) => {
@@ -47,11 +49,17 @@ document.addEventListener('turbolinks:load', () => {
       }
     }
 
-    new Chart(chartWeightContext, {
-      type: 'line',
-      data: weightDate,
-      options: weightOption
-    })
+    if (!chartWeight) {
+      chartWeight = new Chart(chartWeightContext, {
+        type: 'line',
+        data: weightDate,
+        options: weightOption
+      })
+    }else {
+      chartWeight.data = weightData
+      chartWeight.options = weightOption
+      chartWeight.update()
+    }
   }
 
   drawGraph(A_WEEK_AGO, TODAY)

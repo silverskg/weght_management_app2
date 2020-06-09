@@ -7,6 +7,14 @@ document.addEventListener('turbolinks:load', () => {
   const A_MONTH_AGO = new Date(TODAY.getFullYear(), TODAY.getMonth() - 1, TODAY.getDate() + 1)
   const THREE_MONTHS_AGO = new Date (TODAY.getFullYear(), TODAY.getMonth() - 3, TODAY.getDate()  + 1)
 
+     // 日付の古い方・新しい方を取得する関数
+  const minDate = (date1, date2) => (date1 < date2) ? date1 : date2
+  const maxDate = (date1, date2) => (date1 > date2) ? date1 : date2
+
+   // データの初日・最終日
+  const START_DATE = convertDate(gon.weight_records[0].date)
+  const END_DATE = convertDate(gon.weight_records[gon.weight_records.length - 1 ].date)
+
   const chartWeightContext = document.getElementById("chart-weight").getContext('2d')
 
   let chartWeight
@@ -61,6 +69,12 @@ document.addEventListener('turbolinks:load', () => {
       chartWeight.update()
     }
   }
+
+  // const drawGraphToToday = (from) => {
+  //   from = maxDate(from, START_DATE)
+  //   let to = minDate(TODAY, END_DATE)
+  //   drawGraph(from, to)
+  // }
 
   drawGraph(A_WEEK_AGO, TODAY)
 })

@@ -1,2 +1,16 @@
 <%= Gon::Base.render_data %>
-<canvas id="chart-weight"></canvas>
+<div class="row">
+  <div class="col-6 col-sm-3">
+    <input type="button" value="過去１週間" id="a-week-button" class="btn btn-success btn-block mt-3">
+  </div>
+  <div class="col-6 col-sm-3">
+    <input type="button" value="過去２週間" id="two-weeks-button" class="btn btn-success btn-block mt-3">
+  </div>
+  <div class="col-6 col-sm-3">
+    <input type="button" value="過去１ヶ月" id="a-month-button" class="btn btn-success btn-block mt-3">
+  </div>
+  <div class="col-6 col-sm-3">
+    <input type="button" value="過去３ヶ月" id="three-months-button" class="btn btn-success btn-block mt-3">
+  </div>
+</div>
+<canvas id="chart-weight" class="mt-5"></canvas>

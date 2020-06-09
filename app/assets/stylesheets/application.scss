@@ -31,3 +31,8 @@
   div.alert-alert {
     @extend .alert-danger;
   }
+
+  button.close {
+    overflow : hidden;
+    outline : none;
+  }

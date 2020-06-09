@@ -28,4 +28,19 @@
     <input type="text" id="end-calendar" class="form-control bg-white text-center">
   </div>
 </div>
+
+<div class="row">
+  <div class="col-6">
+    <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#new-modal">
+      新規登録
+    </button>
+  </div>
+  <div class="col-6">
+    <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#edit-modal">
+      記録の修正
+    </button>
+  </div>
+</div>
+
 <canvas id="chart-weight" class="mt-5"></canvas>
+<%= render 'modal', action: 'new', title: '新規登録' %>

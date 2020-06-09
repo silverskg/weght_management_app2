@@ -38,6 +38,11 @@ document.addEventListener('turbolinks:load', () => {
   const startCalendarFlatpickr = flatpickr('#start-calendar', periodCalendarOption)
   const endCalendarFlatpickr = flatpickr('#end-calendar', periodCalendarOption)
 
+  flatpickr('#new-calendar', {
+    disableMobile: true,
+    disable: gon.recorded_dates,
+    defultDate: 'today',
+  })
 
   const chartWeightContext = document.getElementById("chart-weight").getContext('2d')
 

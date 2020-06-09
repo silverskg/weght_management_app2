@@ -64,17 +64,21 @@ document.addEventListener('turbolinks:load', () => {
         options: weightOption
       })
     }else {
-      chartWeight.data = weightData
+      chartWeight.data = weightDate
       chartWeight.options = weightOption
       chartWeight.update()
     }
   }
 
-  // const drawGraphToToday = (from) => {
-  //   from = maxDate(from, START_DATE)
-  //   let to = minDate(TODAY, END_DATE)
-  //   drawGraph(from, to)
-  // }
+  const drawGraphToToday = (from) => {
+    from = maxDate(from, START_DATE)
+    let to = minDate(TODAY, END_DATE)
+    drawGraph(from, to)
+  }
+
+  document.getElementById('a-week-button').addEventListener('click', () =>{
+    drawGraphToToday(A_WEEK_AGO)
+  })
 
   drawGraph(A_WEEK_AGO, TODAY)
 })

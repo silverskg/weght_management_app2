@@ -80,5 +80,17 @@ document.addEventListener('turbolinks:load', () => {
     drawGraphToToday(A_WEEK_AGO)
   })
 
+  document.getElementById('two-weeks-button').addEventListener('click',() => {
+    drawGraphToToday(TWO_WEEK_AGO)
+  })
+
+  document.getElementById('a-month-button').addEventListener('click', () => {
+    drawGraphToToday(A_MONTH_AGO)
+  })
+
+  document.getElementById('three-months-button').addEventListener('click', () => {
+    drawGraphToToday(THREE_MONTHS_AGO)
+  })
+
   drawGraph(A_WEEK_AGO, TODAY)
 })

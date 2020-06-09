@@ -7,6 +7,17 @@ document.addEventListener('turbolinks:load', () => {
   const A_MONTH_AGO = new Date(TODAY.getFullYear(), TODAY.getMonth() - 1, TODAY.getDate() + 1)
   const THREE_MONTHS_AGO = new Date (TODAY.getFullYear(), TODAY.getMonth() - 3, TODAY.getDate()  + 1)
 
+  const drawGraphForPeriod = () => {
+    let from = convertDate(document.getElementById('start-calendar').value)
+    let to = convertDate(document.getElementById('end-calendar').value)
+
+    if (from > to) {
+      alert('終了日は開始日以降の日付に設定して下さい')
+    }else {
+      drawGraph(from, to)
+    }
+  }
+
      // 日付の古い方・新しい方を取得する関数
   const minDate = (date1, date2) => (date1 < date2) ? date1 : date2
   const maxDate = (date1, date2) => (date1 > date2) ? date1 : date2
@@ -14,6 +25,19 @@ document.addEventListener('turbolinks:load', () => {
    // データの初日・最終日
   const START_DATE = convertDate(gon.weight_records[0].date)
   const END_DATE = convertDate(gon.weight_records[gon.weight_records.length - 1 ].date)
+
+  flatpickr.localize(flatpickr.l10ns.ja)
+
+  const periodCalendarOption = {
+    disableMobile: true,
+    minDate: START_DATE,
+    maxDate: END_DATE,
+    onChange: drawGraphForPeriod
+  }
+
+  const startCalendarFlatpickr = flatpickr('#start-calendar', periodCalendarOption)
+  const endCalendarFlatpickr = flatpickr('#end-calendar', periodCalendarOption)
+
 
   const chartWeightContext = document.getElementById("chart-weight").getContext('2d')
 
@@ -74,6 +98,8 @@ document.addEventListener('turbolinks:load', () => {
     from = maxDate(from, START_DATE)
     let to = minDate(TODAY, END_DATE)
     drawGraph(from, to)
+    startCalendarFlatpickr.setDate(from)
+    endCalendarFlatpickr.setDate(to)
   }
 
   document.getElementById('a-week-button').addEventListener('click', () =>{

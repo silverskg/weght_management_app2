@@ -35,6 +35,7 @@ document.addEventListener('turbolinks:load', () => {
     onChange: drawGraphForPeriod
   }
 
+  //新規登録用カレンダー
   const startCalendarFlatpickr = flatpickr('#start-calendar', periodCalendarOption)
   const endCalendarFlatpickr = flatpickr('#end-calendar', periodCalendarOption)
 
@@ -42,6 +43,21 @@ document.addEventListener('turbolinks:load', () => {
     disableMobile: true,
     disable: gon.recorded_dates,
     defultDate: 'today',
+  })
+
+  //編集用カレンダー
+  const editCalendar = document.getElementById('edit-calendar')
+  const editWeight = document.getElementById('edit-weight')
+  const inputWeight = () => {
+    let record = gon.weight_records.find((record) => record.date === editCalendar.value)
+    editWeight.value = record.weight
+  }
+
+  flatpickr('#edit-calendar', {
+    disableMobile: true,
+    enable: gon.recorded_dates,
+    noCalendar: gon.recorded_dates.length === 0,
+    onChange: inputWeight
   })
 
   const chartWeightContext = document.getElementById("chart-weight").getContext('2d')

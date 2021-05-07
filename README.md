@@ -6,7 +6,7 @@
 <img width="1100" alt="スクリーンショット 2021-05-06 15 14 03" src="https://user-images.githubusercontent.com/57898864/117250117-b2de7300-ae7d-11eb-916d-5e71c62fdeb5.png">
 
 # URL
-lllllll
+https://weight-app5.herokuapp.com
 ヘッダー部のゲストログインボタンから、メールアドレスとパスワードを入力せずにログインできます。
 
 # 使用技術
